@@ -2,36 +2,42 @@
 
 This folder contains all images used in the HoloSense website.
 
-## Required Images
+The HTML uses fixed local filenames for all images.  
+You can simply place files with the following names into this folder and they will be picked up by the site.
 
-Place the following images in this folder:
+## Required Images (current setup)
 
 ### University Logo
-- `ilia-state-university-logo.png` - Ilia State University logo (used in header and footer)
+- `ilia-state-university-logo.png` – Ilia State University logo (used in navigation, hero and footer)
 
 ### Hero Section
-- `hero.jpg` - Main hero image for the landing section
+- `hero.jpg` – main hero image on the first screen
 
-### Device Images
-- `device.png` - Device visualization for multi-slot design section
-- `how-it-works.png` - Diagram showing how the device works
+### Device / Diagram Images
+- `device.png` – visualization of the HoloSense device / multi-slot design
+- `how-it-works.png` – diagram showing how the system works
 
-### Device Parts
-- `part-1.png` - PTC Heating Pads
-- `part-2.png` - Raspberry Pi 4
-- `part-3.png` - Scent Capsules
-- `part-4.png` - 30mm Fans
-- `part-5.png` - Acrylic Panels
-- `part-6.png` - Wiring and Connectors
+### Device Parts (cards in “მოწყობილობის ნაწილები”)
+- `part-1.png` – ESP32 microcontroller
+- `part-2.png` – perfume pump
+- `part-3.png` – 38mm magnetic pump
+- `part-4.png` – 12V 10A power supply
+- `part-5.png` – step‑down converter 5A
+- `part-6.png` – PTC ceramic heating plate 5V
+- `part-7.png` – supporting electronics / cables
 
-## Adding New Parts
+## Adding or duplicating parts
 
 To add a new part to the Device Components section:
 
-1. Add your image file as `part-X.png` (where X is the next number)
-2. In `index.html`, find the Device Components section
-3. Copy one of the part card blocks (marked with comments)
-4. Update the image path, alt text, title, and description
+1. Add your image file as `part-X.png` (where X is the next free number) or any other name.
+2. In `index.html`, find the **Device Components / Parts Section** (`id="device-parts"`).
+3. Copy one of the part card blocks (between `<!-- Duplicate this block to add a new part -->` comments).
+4. Update:
+   - `src` path for the image
+   - `alt` text (in Georgian)
+   - `<h3>` title and `<p>` description
+   - the `href` of the `part-link` button (there is a TODO comment for each link).
 
 Example:
 ```html
@@ -58,3 +64,6 @@ Example:
   - Logo: 200x80px (maintain aspect ratio)
 - All images should be optimized for web use
 - Use descriptive alt text in Georgian for accessibility
+
+> Note: Product URLs in the parts grid are **not hardcoded** –  
+> each button has `href="#"` plus a TODO comment where you can paste your own link.
